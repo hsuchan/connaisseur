@@ -314,6 +314,43 @@
               "IfNotPresent"
             ]
           },
+          "imagePullSecrets": {
+            "$id": "#/properties/deployment/properties/imagePullSecrets",
+            "type": "array",
+            "title": "The imagePullSecrets schema",
+            "description": "The list of ImagePullSecrets of Connaisseur if pulling from a private registry. (https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/)",
+            "examples": [
+              [
+                {
+                  "name": "my-pull-secret"
+                }
+              ]
+            ],
+            "items": {
+              "$id": "#/properties/deployment/properties/imagePullSecrets/items",
+              "type": "object",
+              "title": "The ImagePullSecret schema",
+              "description": "An ImagePullSecret of Connaisseur if pulling from a private registry.",
+              "examples": [
+                {
+                  "name": "my-pull-secret"
+                }
+              ],
+              "properties": {
+                "name": {
+                  "$id": "#/properties/deployment/properties/imagePullSecrets/items/properties/name",
+                  "type": "string",
+                  "title": "The name schema",
+                  "description": "Name of Kubernetes Secret to use for authentication with private registry.",
+                  "examples": [
+                    {
+                      "name": "my-pull-secret"
+                    }
+                  ]
+                }
+              }
+            }
+          },
           "failurePolicy": {
             "$id": "#/properties/deployment/properties/failurePolicy",
             "type": "string",
@@ -559,6 +596,69 @@
               }
             ],
             "additionalProperties": true
+          },
+          "extraContainers": {
+            "$id": "#/properties/deployment/properties/extraContainers",
+            "type": "array",
+            "title": "The extraContainers schema",
+            "description": "Extra containers to be injected into the Connaisseur Pod to be used as sidecar.",
+            "examples": [
+              [
+                {
+                  "name": "exampleContainer",
+                  "image": "exampleImage:1.1.1",
+                  "volumeMounts": {
+                    "mountPath": "/exmaplepath/",
+                    "name": "example-vol"
+                  },
+                  "command": "examplecommand"
+                }
+              ]
+            ],
+            "additionalItems": true,
+            "items": {
+              "$id": "#/properties/deployment/properties/extraContainers/items",
+              "type": "object"
+            }
+          },
+          "extraVolumes": {
+            "$id": "#/properties/deployment/properties/extraVolumes",
+            "type": "array",
+            "title": "The extraVolumes schema",
+            "description": "Extra volumes to be added to the Connaisseur Pod.",
+            "examples": [
+              [
+                {
+                "name": "example-vol",
+                "emptyDir": {}
+                }
+              ]
+            ],
+            "additionalItems": true,
+            "items": {
+              "$id": "#/properties/deployment/properties/extraVolumes/items",
+              "type": "object"
+            }
+          },
+          "extraVolumeMounts": {
+            "$id": "#/properties/deployment/properties/extraVolumeMounts",
+            "type": "array",
+            "title": "The extraVolumeMounts schema",
+            "description": "Extra volume mounts of the Connaisseur Pod.",
+            "examples": [
+              [
+                {
+                  "mountPath": "/examplepath/",
+                  "name": "refresher-vol",
+                  "readOnly": "true"
+                }
+              ]
+            ],
+            "additionalItems": true,
+            "items": {
+              "$id": "#/properties/deployment/properties/extraVolumeMounts/items",
+              "type": "object"
+            }
           }
         },
         "additionalProperties": true
