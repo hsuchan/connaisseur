@@ -785,7 +785,7 @@
                   "cert": {
                     "$id": "#/properties/validators/items/anyOf/0/properties/cert",
                     "title": "The cert schema",
-                    "description": "TLS-certificate if using a notary V1 instance requiring a self-signed certificate.",
+                    "description": "TLS certificate if using a notary V1 instance requiring a self-signed certificate.",
                     "type": "string",
                     "pattern": "(?:-+BEGIN\\sCERTIFICATE[-]+)\n(?:(?:[A-Za-z0-9+\\/\\s])*={0,2})\n(?:-+END\\sCERTIFICATE[-]+)"
                   },
@@ -948,7 +948,7 @@
                   "cert": {
                     "$id": "#/properties/validators/items/anyOf/2/properties/cert",
                     "title": "The cert schema",
-                    "description": "TLS-certificate if using a registry requiring a self-signed certificate.",
+                    "description": "TLS certificate if using a registry requiring a self-signed certificate.",
                     "type": "string",
                     "pattern": "(?:-+BEGIN\\sCERTIFICATE[-]+)\n(?:(?:[A-Za-z0-9+\\/\\s])*={0,2})\n(?:-+END\\sCERTIFICATE[-]+)"
                   },
