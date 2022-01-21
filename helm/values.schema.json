@@ -720,7 +720,7 @@
                     "examples": [
                       "notary.docker.io"
                     ],
-                    "pattern": "(([-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}|(localhost))(\\:\\d{2,5})?"
+                    "pattern": "(([-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6})|(localhost))(\\:\\d{2,5})?"
                   },
                   "trust_roots": {
                     "$id": "#/properties/validators/items/anyOf/0/properties/trust_roots",
